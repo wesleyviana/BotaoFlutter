@@ -1,0 +1,63 @@
+import 'package:flutter/material.dart';
+
+class BotaoPage extends StatelessWidget {
+
+ String titulo;
+ int colorA;
+ int colorB;
+ String nomePage;
+ Object url;
+
+ BotaoPage(this.titulo,this.url,this.colorA,this.colorB);
+
+ @override
+  Widget build(BuildContext context) {
+    return new Container(
+            height: 60,
+            alignment: Alignment.centerLeft,
+            decoration: BoxDecoration(
+            gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end:   Alignment.topLeft,
+                        stops: [0.3,1],
+                        colors: [
+                           Color(this.colorA),
+                           Color(this.colorB)
+                        ],
+
+                 ),
+                borderRadius: BorderRadius.all(Radius.circular(5)), 
+            ),
+            child: FlatButton(
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,                          
+                          children: <Widget>[
+                             Text(
+                               this.titulo,
+                               style: TextStyle(
+                                 fontWeight: FontWeight.bold,
+                                 color: Colors.white,
+                                 fontSize: 20,
+                               ),
+                               textAlign: TextAlign.center,
+                             ),
+                          ],
+                      ),
+                      onPressed: (){ 
+                          Navigator.push(
+                            context, 
+                            MaterialPageRoute(
+                                 builder: (context) => this.url,
+                            )
+                          );
+                       },
+                    ),
+         
+          );        
+           
+      
+      
+  
+  }
+  
+}
